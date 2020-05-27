@@ -11,7 +11,7 @@ export class PeopleService {
     new Person('Albert', 'Einstein', 106),
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getPerson(): Person[] {
     return this.personArr.filter((person) => {

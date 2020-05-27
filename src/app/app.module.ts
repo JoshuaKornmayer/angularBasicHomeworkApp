@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompTwoComponent } from './comp-two/comp-two.component';
@@ -18,7 +18,7 @@ import { PeopleService } from './people.service';
     PeopleListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [PeopleService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
