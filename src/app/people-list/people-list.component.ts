@@ -8,13 +8,18 @@ import { PeopleService } from '../people.service';
   styleUrls: ['./people-list.component.css'],
 })
 export class PeopleListComponent implements OnInit {
+  peeps: Person[];
+
   constructor(private peopleService: PeopleService) {}
 
   ngOnInit(): void {
-    this.peopleService.getPerson();
+    this.getPeeps();
   }
 
-  get peopleList(): Person[] {
-    return this.peopleService.getPerson();
+  getPeeps(): void {
+    this.peopleService.getPerson().subscribe((response) => {
+      this.peeps = response;
+      console.log('it works!');
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Person } from './person';
 import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,16 +14,18 @@ export class PeopleService {
 
   constructor() {}
 
-  getPerson(): Person[] {
-    return this.personArr.filter((person) => {
-      return (
-        'Name: ' +
-        person.getFirstName() +
-        ' ' +
-        person.getLastName() +
-        ', Age: ' +
-        person.getAge()
-      );
-    });
+  getPerson(): Observable<Person[]> {
+    return of(
+      this.personArr.filter((person) => {
+        return (
+          'Name: ' +
+          person.getFirstName() +
+          ' ' +
+          person.getLastName() +
+          ', Age: ' +
+          person.getAge()
+        );
+      })
+    );
   }
 }
